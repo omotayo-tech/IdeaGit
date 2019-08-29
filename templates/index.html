@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'CSS/style.css' %}">    
+      <script src="{% static 'app_name/js/script.js' %}"></script>
+    </head>
+ 
+    <body>
+    	    <h1>Welcome To Amor !<h1>
+<div id="header">
+        {% load static %}
+        
+    <img src="{% static "images/amor.png" %}" alt="My image" style= "width:1655px; height:400px; border:0">
+        
+       
+
+
+
+<form action="/login" method="POST" >
+  <h2>LOGIN</h2> 
+ 
+                {% csrf_token %}
+                <label class="col-sm-2 control-label">Email</label>
+            
+                <input type="text" name="email" class="form-control"> <br/>
+              <br>
+                <label class="col-sm-2 control-label">Password</label>
+                <input type="password" name="loginpassword" class="form-control"><br/>
+                <input type="submit" value="Login">
+</form>
+ 
+ {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<br>
+<footer>
+<h4>Register:<a href='/registration'>I dont have an account</a></h4>
+</footer>
+</body>
+   </div>
+ </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'CSS/style.css' %}">    
+      <script src="{% static 'app_name/js/script.js' %}"></script>
+    </head>
+ 
+    <body>
+    	    <h1>Welcome To Amor !<h1>
+<div id="header">
+        {% load static %}
+        
+    <img src="{% static "images/amor.png" %}" alt="My image" style= "width:1655px; height:200px; border:0">
+
+ <div id="mg">
+
+ <p>  Point Of View :  {{opinion.point_of_view}}</p>
+ <p>   Creator Name:  {{opinion.user.first_name}}   {{opinion.user.last_name}}</p>
+ <p>  Date created :  {{opinion.created_at}}
+

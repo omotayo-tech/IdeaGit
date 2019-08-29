@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'CSS/style.css' %}">    
+      <script src="{% static 'app_name/js/script.js' %}"></script>
+    </head>
+ 
+    <body>
+    	    <h1>Welcome To Amor !<h1>
+<div id="header">
+        {% load static %}
+        
+    <img src="{% static "images/amor.png" %}" alt="My image" style= "width:1655px; height:200px; border:0">
+
+     <div id="mg">
+       
+  
+    	  </div>
+         <h3> Welcome, {{request.session.first_name}} !</h3>
+
+        <div id="header">
+              <p>{{access}}</p>
+     
+     
+     <p> <a href= '/homepage'> HOME</a>
+    <a href= '/homepage/info'>PROFILE</a>
+    <a href='/logout'>LOGOUT</a>
+    <a href='/homepage/video'>VIDEOS</a></p>
+
+
+</div>
+                  
+
+<form action='/homepage/point_of_view' method='POST'>
+        {% csrf_token %}
+<h3><label for='frr'value='vfv'>What's on your mind:</label> 
+<input type='text' name='point_of_view'><br/></h3>
+<h3><input type='submit' value='Add '></h3>
+<br>
+</form>
+
+
+<br/>
+ 
+ 
+ {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div id="me">
+
+  <h2>  Point Of Views</h2>
+
+             <table class="table"  width="70%">
+  <thead>
+    <tr>
+      <th scope="col">Point Of View</th>
+      <th scope="col">Date added</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   {% for opinion in all_opinions %}
+   {% if opinion.added == False and opinion.user.id == request.session.id %}
+    <tr>
+
+      <td>{{opinion.point_of_view}}</td>
+      <td>{{opinion.created_at}}</td>
+    <td> <a href='/homepage/details/{{opinion.id}}'>Details</a> | <a href='/homepage/delete/{{opinion.id}}'>Delete</a> |<a href='/homepage/added/{{opinion.id}}'> Add to Favorite!</a><td> {{opinion.added}}</td></td>
+    {% endif %}
+     {% endfor %}
+   </tbody>
+</table>
+
+
+<h2>Favorite</h2>
+
+         <table class="table"  width="80%">
+  <thead>
+    <tr>
+      <th scope="col">Quote/Thoughts</th>
+      <th scope="col">Wisher</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Date added as favorite</th>
+       <th scope="col">Likes</th>
+      <th scope="col">Actions</th>
+       </tr>
+  </thead>
+  <tbody>
+
+            
+   
+   {% for opinion in all_opinions %}
+{% if opinion.added == True %}
+
+ <tr>
+      <td>{{opinion.point_of_view}}</td>
+      <td>{{opinion.user.first_name}}</td>
+      <td>{{opinion.created_at}}</td>
+      <td>{{opinion.added_at}}</td>
+      <td>{{opinion.likes.all| length}}</td>
+      <td><a href='/homepage/like/{{opinion.id}}'> Like</a> | <a href='/homepage/delete/{{opinion.id}}'>Delete</a></td>
+       </tr>
+        {% endif %}
+   {% endfor %}
+  <tbody>
+</div>
+
+
+</body>
+
+</html>

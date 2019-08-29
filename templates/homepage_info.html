@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'CSS/style.css' %}">    
+      <script src="{% static 'app_name/js/script.js' %}"></script>
+    </head>
+ <body>
+ <div id="mg">
+
+   <h1> Welcome, {{request.session.first_name}},My Profile!</h1>
+         {% load static %}
+    <img src="{% static "images/amor.png" %}" alt="My image"/>
+    <img src="{% static "images/amor.png" %}" alt="My image"/>
+    <img src="{% static "images/amor.png" %}" alt="My image"/>
+    <img src="{% static "images/amor.png" %}" alt="My image"/>
+
+    	  </div>
+
+   <div id="header">
+
+      <h4><a href='/homepage'>Back</a></h4>
+      
+      <h4><a href='/homepage/edit/{{user.id}}'>Edit my account</a></h4>
+      <br>
+<div id="info">
+<h1> My Profile</h1>
+
+ <p>First Name : {{user.first_name}}</P>
+ <p>Last Name : {{user.last_name}}</P>
+ <p> Email : <a href='https://{{user.email}}/'>{{user.email}}</a></p>
+
+ <p> Description : {{user.description}}</p>
+ <p> City : {{user.city}} </p>
+ <p> Website : <a href='https://{{user.website}}/'>{{user.website}}</a></p>
+ <p> Phone Number : {{user.phone_number}}  </p>
+
+</div>
+
+ </body>
+   </div>

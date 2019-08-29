@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'CSS/style.css' %}">    
+      <script src="{% static 'app_name/js/script.js' %}"></script>
+    </head>
+
+   
+
+    <body>
+    <div id="mg">
+         {% load static %}
+    <img src="{% static "images/amor.png" %}" alt="My image" width="100%" height=" 100"/>
+  
+    	  </div>
+        
+         <h1> Welcome, {{request.session.first_name}} !</h1>
+
+
+
+
+<div id="videos">
+  <h4><a href='/homepage'>Back</a></h4>
+<h1> VIDEOS</h1>
+<br>
+
+<iframe width="420" height="300" src="https://www.youtube.com/embed/uYFvE01SO0s">
+</iframe>
+
+<iframe width="420" height="300" src="https://www.youtube.com/embed/lXvTe4KJfeY">
+</iframe>
+
+<iframe width="420" height="300" src="https://www.youtube.com/embed/Hb8SwEF9_iY">
+</iframe>
+
+
+<iframe width="420" height="300" src="https://www.youtube.com/embed/8rOER0uOzz8">
+</iframe>
+
+
+<iframe width="420" height="300" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+
+</div>
+</body>
+
+</html>
